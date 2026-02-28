@@ -160,7 +160,9 @@ Then open [agents-playground.livekit.io](https://agents-playground.livekit.io), 
 
 ## Known Limitations
 
-- **Single participant** — targets the first participant to join; multiple participants are not independently handled
-- **Silence polling precision** — reminder may fire up to 5s after the 20s threshold due to poll interval
-- **Echo only** — no conversational LLM; agent mirrors user speech verbatim
-- **Network latency** — round trip depends on Deepgram and Cartesia response times via LiveKit; typically under 300ms
+- **Single participant** - targets the first participant to join, multiple participants are not independently handled in this setup
+- **Silence polling precision** - reminder may fire up to 5s after the 20s threshold due to poll interval
+- **Echo only** - no conversational LLM(current setup) and  doesn't store chat history either.
+- **Network latency** - Since we’re hitting US-based AI servers from India, that 200ms–400ms round-trip "ping" makes the agent feel like it’s hesitating, even if the code is fast
+- **TTS models** - most of the TTS models aren't good at indian native languages, newer models from indian startups are working well(latency issue is still a problem because of infra availability) so choose models wisely. 
+- **STT models** - majority of these models aen't good at transcribing indian languages. Multimodal LLMS are good at but are costly.  
