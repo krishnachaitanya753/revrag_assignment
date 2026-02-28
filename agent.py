@@ -164,6 +164,8 @@ async def entrypoint(ctx: JobContext):
         stt="deepgram/nova-3:multi",
         tts="cartesia/sonic-3:9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
         vad=ctx.proc.userdata["vad"],
+        allow_interruptions=True,
+        min_interruption_duration=0.3
     )
 
     await session.start(
